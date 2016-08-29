@@ -1,0 +1,20 @@
+{
+  "title": "Tune slack",
+  "name": "tuneslack",
+  "version": "0.0.1",
+  "description": "Slack tuning",
+  "main": "index.js",
+  "author": "Ilya Kantor",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ],
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-config-google": "^0.6.0"
+  }
+}
