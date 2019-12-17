@@ -5,7 +5,10 @@ document.addEventListener('click', function(e) {
 
   let href = a.getAttribute('href');
   if (href.includes('://')) {
-    self.port.emit("openLink", href);
     e.preventDefault();
+    chrome.runtime.sendMessage({
+      cmd: 'open-in-default',
+      href
+    });
   }
 });
