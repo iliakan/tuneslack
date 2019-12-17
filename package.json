@@ -1,8 +1,8 @@
 {
-  "title": "Tune slack",
-  "name": "tuneslack",
-  "version": "0.0.1",
-  "description": "Slack tuning",
+  "title": "Open in default browser",
+  "name": "open-in-default-browser",
+  "version": "1.0.0",
+  "description": "Open links in default browser",
   "main": "index.js",
   "author": "Ilya Kantor",
   "engines": {
@@ -11,10 +11,6 @@
   },
   "license": "MIT",
   "keywords": [
-    "jetpack"
-  ],
-  "devDependencies": {
-    "eslint": "^3.4.0",
-    "eslint-config-google": "^0.6.0"
-  }
+    "open links default browser"
+  ]
 }

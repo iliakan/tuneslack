@@ -5,5 +5,9 @@
         "node": true,
         "es6": true
   },
-  "indent": 2
+  "rules": {
+    "indent": 2,
+    "no-console": 0,
+    "keyword-spacing": ["error", { "before": true }]
+  }
 }

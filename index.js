@@ -1,40 +1,23 @@
-const buttons = require('sdk/ui/button/action');
-// let { Cc, Ci } = require('chrome');
+const os = require("sdk/system").platform.toLowerCase();
+const pageMod = require("sdk/page-mod");
+const child_process = require("sdk/system/child_process");
 
-var os = require("sdk/system").platform.toLowerCase();
-var child_process = require("sdk/system/child_process");
-
-buttons.ActionButton({
-  id: "mozilla-link",
-  label: "Visit Mozilla",
-  icon: {
-    "16": "./icon-16.png",
-    "32": "./icon-32.png",
-    "64": "./icon-64.png"
-  },
-  onClick: handleClick
-});
-
-function handleClick(state) {
-  doOpen("http://ya.ru/");
-}
-
-function doOpen(url) {
+function openLink(url) {
   let args, path;
   if (os == "winnt") {
     path = "C:\\Windows\\System32\\cmd.exe";
-    args = ["/c", "start", "https://google.com"];
+    args = ["/c", "start", url];
   }
   else if (os == "darwin") {
     path = "/usr/bin/open";
-    args = ["https://google.com"];
+    args = [url];
   }
   else if (os == "linux") {
     path = "/usr/bin/xdg-open";
-    args = ["https://google.com"];
+    args = [url];
   }
 
-  console.log("!!!!", os, path, args);
+  console.log("Open", os, path, args);
 
   var ls = child_process.spawn(path, args);
 
@@ -50,3 +33,13 @@ function doOpen(url) {
     console.log('child process exited with code ' + code);
   });
 }
+
+pageMod.PageMod({
+  include: "*.slack.com",
+  // include: "*",
+  contentScriptFile: "./onclick.js",
+  contentScriptWhen: "ready",
+  onAttach: function(worker) {
+    worker.port.on("openLink", openLink);
+  }
+});
