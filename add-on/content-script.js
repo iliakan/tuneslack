@@ -6,9 +6,9 @@ document.addEventListener('click', function(e) {
   let href = a.getAttribute('href');
   if (href.includes('://')) {
     e.preventDefault();
-    chrome.runtime.sendMessage({
-      cmd: 'open-in-default',
-      href
+    browser.runtime.sendMessage({
+      cmd: 'open.in.default',
+      url: href
     });
   }
 });

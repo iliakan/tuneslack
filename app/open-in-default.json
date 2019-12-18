@@ -1,0 +1,7 @@
+{
+  "name": "open.in.default",
+  "description": "Open in default browser",
+  "path": "/js/open-in-default/app/app.js",
+  "type": "stdio",
+  "allowed_extensions": [ "open.in.default@javascript.info" ]
+}

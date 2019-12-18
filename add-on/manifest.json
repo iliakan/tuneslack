@@ -9,13 +9,18 @@
     "nativeMessaging"
   ],
   "background": {
-    "persistent": false,
     "scripts": [
       "background.js"
     ]
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "open.in.default@javascript.info",
+      "strict_min_version": "50.0"
+    }
+  },
   "content_scripts": [{
-      "matches": ["*://*.slack.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["content-script.js"],
       "run_at": "document_start",
       "all_frames": true
